@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Eng Mohamed Tharwat — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-dark:#070707;
+  --card:#0f0f10;
+  --accent:#ff6a00;
+  --accent-2:#ff4500;
+  --text:#eaeaea;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Cairo',sans-serif;background:linear-gradient(180deg,#030303,#070707);color:var(--text);-webkit-font-smoothing:antialiased}
+.app {min-height:100vh;display:flex;flex-direction:column;}
+
+/* header / nav */
+header{
+  display:flex;align-items:center;justify-content:space-between;padding:18px 28px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:64px;height:64px;border-radius:12px;background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:20px;box-shadow:0 8px 30px rgba(255,90,0,0.12);}
+.brand h1{margin:0;font-size:18px}
+.brand p{margin:0;font-size:12px;opacity:.85}
+
+/* nav */
+nav{display:flex;gap:10px;align-items:center}
+.nav-btn{
+  background:transparent;border:1px solid rgba(255,255,255,0.04);
+  padding:10px 14px;border-radius:10px;color:var(--text);
+  cursor:pointer;transition:all .22s;font-weight:600;
+}
+.nav-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.controls{display:flex;gap:10px;align-items:center}
+
+/* main layout */
+.container{max-width:1200px;margin:36px auto;padding:0 18px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.main{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:14px;padding:22px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+.aside{
+  position:relative;border-radius:14px;padding:18px;background:var(--card);border:1px solid rgba(255,255,255,0.03);
+  height:fit-content;
+}
+
+/* hero */
+.hero{display:flex;gap:20px;align-items:center}
+.avatar{
+  width:120px;height:120px;border-radius:18px;background:url('https://images.unsplash.com/photo-1545996124-6e1a3c8b03d9?auto=format&fit=crop&w=600&q=80') center/cover;
+  border:4px solid rgba(255,255,255,0.03);
+  box-shadow:0 12px 40px rgba(0,0,0,0.6);
+}
+.h-info h2{margin:0;font-size:26px}
+.h-info p{margin:6px 0 0;opacity:.9}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:18px}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+  transition:transform .25s,box-shadow .25s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(0,0,0,0.6)}
+.card .thumb{height:140px;border-radius:8px;background:#111;background-size:cover;background-position:center;margin-bottom:12px;border:1px solid rgba(255,255,255,0.03)}
+.card h3{margin:0 0 6px;color:var(--accent)}
+.card p{margin:0;opacity:.9;font-size:14px}
+
+/* filters area */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.filter-btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;background:transparent;color:var(--text)}
+
+/* aside details */
+.aside h3{margin-top:0;color:var(--accent)}
+.kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.02);opacity:.9}
+
+/* contact form */
+form{display:flex;flex-direction:column;gap:10px}
+input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:var(--text);outline:none}
+button.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;padding:12px;border-radius:12px;color:#fff;cursor:pointer;font-weight:700}
+
+/* footer */
+.footer{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.02);opacity:.8;text-align:center}
+
+/* small responsive */
+@media(max-width:980px){
+  .container{grid-template-columns:1fr; padding:20px}
+  .aside{order:2}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="logo">MT</div>
+      <div>
+        <h1>Eng Mohamed Tharwat</h1>
+        <p>Designer • Frontend • Backend</p>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn" data-target="home">الرئيسية</button>
+      <button class="nav-btn" data-target="projects">الأعمال</button>
+      <button class="nav-btn" data-target="server">السيرفرات</button>
+      <button class="nav-btn" data-target="gallery">المعرض</button>
+      <button class="nav-btn" data-target="contact">تواصل</button>
+    </nav>
+
+    <div class="controls">
+      <a id="downloadCV" class="nav-btn" href="#" download="MohamedTharwat_CV.pdf">⬇ سيرة ذاتية</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="main" id="pageContent"></section>
+
+    <aside class="aside">
+      <h3>نبذة سريعة</h3>
+      <p style="opacity:.9">مهندس برمجيات / مهتم بتصميم واجهات جميلة وأنظمة خلفية قوية.</p>
+      <div style="margin-top:10px">
+        <div class="kv"><strong>الموقع</strong><span>Personal Portfolio</span></div>
+        <div class="kv"><strong>الخبرة</strong><span>3+ سنوات</span></div>
+        <div class="kv"><strong>التقنيات</strong><span>HTML/CSS • JS • Node</span></div>
+      </div>
+
+      <h3 style="margin-top:18px">العناوين</h3>
+      <p style="opacity:.9">Email: <strong>mohamed@example.com</strong></p>
+
+      <div class="footer">
+        <span id="year"></span> Eng Mohamed Tharwat
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script>
+const pages = {
+  home: `
+    <div class="hero">
+      <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1545996124-6e1a3c8b03d9?auto=format&fit=crop&w=600&q=80')"></div>
+      <div class="h-info">
+        <h2>Eng Mohamed Tharwat</h2>
+        <p>أهلاً — هذا ملف تعريفي شخصي للأعمال والمشاريع. استكشف وأرسل رسالة إذا أعجبك شغلي.</p>
+      </div>
+    </div>
+  `,
+  projects: `
+    <h2 style="color:var(--accent)">أعمالي</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80')"></div>
+        <h3>مكتبة خلفيات تفاعلية</h3>
+        <p>مكتبة خلفيات مع فلاتر وواجهة اختيار شبكية وسرعة تحميل عالية.</p>
+      </div>
+      <div class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80')"></div>
+        <h3>نظام دردشة Desktop</h3>
+        <p>تطبيق دردشة محلي مع Socket.io، خلفيات لكل محادثة، ملصقات وفلاتر.</p>
+      </div>
+      <div class="card">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80')"></div>
+        <h3>Landing page احترافي</h3>
+        <p>Landing page مخصص لحملات تسويق مع انيميشن وتحويلات عالية.</p>
+      </div>
+    </div>
+  `,
+  server: `<h2 style="color:var(--accent)">السيرفرات والتقنيات</h2><p>Node.js، Express، Socket.io، MongoDB للـ backend.</p>`,
+  gallery: `<h2 style="color:var(--accent)">المعرض</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:12px">
+      <div style="height:160px;border-radius:10px;background:url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80') center/cover"></div>
+      <div style="height:160px;border-radius:10px;background:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80') center/cover"></div>
+      <div style="height:160px;border-radius:10px;background:url('https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=800&q=80') center/cover"></div>
+      <div style="height:160px;border-radius:10px;background:url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=800&q=80') center/cover"></div>
+    </div>
+  `,
+  contact: `<h2 style="color:var(--accent)">تواصل معي</h2>
+    <form id="contactForm">
+      <input id="name" placeholder="الاسم" required/>
+      <input id="email" type="email" placeholder="البريد الإلكتروني" required/>
+      <textarea id="message" rows="5" placeholder="رسالتك..." required></textarea>
+      <button type="submit" class="primary">إرسال عبر البريد</button>
+    </form>`
+};
+
+const pageContent = document.getElementById('pageContent');
+function show(page){ pageContent.innerHTML = pages[page] || pages.home; attachContact(); }
+show('home');
+
+document.querySelectorAll('.nav-btn').forEach(b=>{
+  b.addEventListener('click', ()=> {
+    document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    show(b.dataset.target);
+  });
+});
+
+document.getElementById('year').innerText = new Date().getFullYear();
+
+function attachContact(){
+  const form = document.getElementById('contactForm');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const n=document.getElementById('name').value;
+      const em=document.getElementById('email').value;
+      const msg=document.getElementById('message').value;
+      window.location.href = `mailto:${encodeURIComponent('mohamed@example.com')}?subject=${encodeURIComponent('رسالة من '+n)}&body=${encodeURIComponent(msg+'\n\nالبريد: '+em)}`;
+    });
+  }
+}
+</script>
+
+</body>
+</html>
